@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = MyPagerAdapter(supportFragmentManager)
         stepIndicator.setStep(0)
 
+        stepIndicator.onClick = {
+            viewPager.currentItem = it/2
+            stepIndicator.setStep(it/2)
+        }
+
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
